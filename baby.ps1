@@ -18,3 +18,13 @@ get-netfirewallrule |where displaygroup -EQ 'remote service management' |set-net
 get-childitem env: |more
 $env:path
 get-variable |more
+
+#Store secret
+$credential = get-credential
+
+#List commands with -pssession
+gcm *-pssession
+
+#Run commands remotely - PS Core
+invoke-command -computername dc1 -cred(get-credential) -scriptblock {get-aduser -identity felixb |format-list}
+
