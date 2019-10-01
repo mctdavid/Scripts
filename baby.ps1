@@ -1,3 +1,4 @@
+#Command History
 get-history | out-file c:\history.txt
 
 Start-transcript -path c:\transcript.txt -append
